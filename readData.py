@@ -9,6 +9,7 @@ import gpib
 		print response
 	#line from ievgen 
         #line 2
+	#line 3
 	gpib.write(tds,"DATA:ENCDG ASCI") #read data in ASCI 
 	gpib.write(tds,"DATA:WIDTH 1") #read numbers in 1 byte (-128 .. 128 range)
 	query(tds,"*IDN?")
