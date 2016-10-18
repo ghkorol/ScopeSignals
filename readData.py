@@ -1,3 +1,16 @@
+
+import os
+
+i = 0
+while os.path.exists("run%s.txt" % i):
+    i += 1
+
+import sys
+f = open("run%s.txt" % i, "w")
+sys.stdout = f # redirect output for all prints to the file
+
+
+
 import gpib
 import time
 tds= gpib.find("tds744") # define in /etc/gpib.conf
@@ -31,3 +44,7 @@ gpib.write(tds,"TRIG:MAI:EDGE:SOU CH1") #Trigger Source
 gpib.write(tds,"TRIG:MAI:LEV -100.0E-3") #Trigger y-Position
 	
 gpib.close(tds)
+
+
+
+f.close()
