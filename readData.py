@@ -75,7 +75,7 @@ while trigsSaved<nTrigs:
 	if trigState3 == ":TRIG:STATE REA":
 	  gpib.write(tds,"BELL")
 	  time2 = time.time()
-	  f.write("timediff %"time2 - time1 )
+	  f.write("timediff %s\n" % (time2 - time1) )
 	  time1 = time.time()
 	  f.write(query(tds,"CURVE?")+"\n")
 	  breaker = True
