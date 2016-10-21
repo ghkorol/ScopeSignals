@@ -56,6 +56,7 @@ write(tds,"TRIG:MAI:LEV -200.0E-3") #Trigger y-Position
 write(tds,"DATA:ENCDG ASCI") #set the convenient data reading format(p. 2-34, p.2-35)
 write(tds,"BELL")
 
+time1 = time.time()
 ## Read data by trigger 
 trigsSaved = 0
 while trigsSaved<nTrigs:
@@ -73,6 +74,9 @@ while trigsSaved<nTrigs:
 	trigState3 = query(tds,"TRIG:STATE?")
 	if trigState3 == ":TRIG:STATE REA":
 	  gpib.write(tds,"BELL")
+	  time2 = time.time()
+	  f.write("timediff %"time2 - time1 )
+	  time1 = time.time()
 	  f.write(query(tds,"CURVE?")+"\n")
 	  breaker = True
 	  break
