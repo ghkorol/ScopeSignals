@@ -41,12 +41,19 @@ write(tds,"HOR:MAI:SCAl 100.0E-9") #Set Time Scale
 write(tds,"CH1:SCAL 200.0E-3 ") # Set Voltage Scale
 write(tds,"CH1:IMP FIF ") # SET Impedance to 50 Ohm, for 1M use MEG
 write(tds,"CH1:POS 0") #y-Position
-write(tds,"CH2:SCAL 200.0E-3 ") 
+
+write(tds,"CH2:SCAL 1.0E-3 ") 
 write(tds,"CH2:IMP FIF ") 
 write(tds,"CH2:POS 0")
-write(tds,"CH3:SCAL 200.0E-3 ") 
+write(tds,"CH2:BANDWIDTH TWENTY")
+write(tds,"CH2:OFFS -0.00165")
+
+write(tds,"CH3:SCAL 1.0E-3 ") 
 write(tds,"CH3:IMP FIF ") 
 write(tds,"CH3:POS 0")
+write(tds,"CH3:BANDWIDTH TWENTY")
+write(tds,"CH3:OFFS -0.0012")
+
 
 #Set Trigger
 write(tds,"TRIG:MAI:EDGE:SLO FALL") #change Slope Fall or Rise
